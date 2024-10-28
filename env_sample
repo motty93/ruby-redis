@@ -1,0 +1,1 @@
+REDIS_URL=redis://mypassword@localhost:6379/0
