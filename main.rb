@@ -1,8 +1,4 @@
-require 'redis'
-require 'dotenv/load'
+require './redis_worker'
 
-redis = Redis.new(url: ENV['REDIS_URL'])
-return if redis.nil?
-
-redis.set('mykey', 'hello world')
-puts redis.get('mykey')
+# sidekiqにジョブ追加
+RedisWorker.perform_async('my_key', 'hello, Redis!')
